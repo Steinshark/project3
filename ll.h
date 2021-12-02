@@ -35,6 +35,7 @@ double time_dist(tm,tm);
 void write_time(double);
 void write_dist(double);
 void write_speed(double,double);
+void write_pace(double,double);
 TrackFile* build_track(string);
 LandmarkFile* build_landmark(string);
 tm* input_to_tm(string,string);

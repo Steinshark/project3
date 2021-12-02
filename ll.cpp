@@ -69,11 +69,21 @@ void write_dist(double distance){
     cout << "Total distance: " << distance << endl;
 }
 
-    // build a struct containing everything needed to compute
+    // neatly display speed
 void write_speed(double time, double distance){
-    cout << "Average speed: " << distance / time << " mph" << endl;
+    cout << "Average speed: " << (distance * 3600) / time << " mph" << endl;
 }
+ 
 
+    // neatly display pace 
+void write_pace(double time, double distance){
+ 	double paceInSeconds = time / distance ;
+	int minutes = (int)paceInSeconds / 60;
+	double seconds = paceInSeconds - (minutes * 60);
+
+	cout << "Average pace: " << minutes << " minutes, " << seconds << " seconds per mile" << endl;
+}
+    // build a struct containing everything needed to compute
     // values for a given workout
 TrackFile* build_track(string filename){
 
@@ -165,8 +175,13 @@ void stats(TrackFile* trackFile){
     // write distance
     double distance = calc_dist(start);
     write_dist(distance);
+
     // write speed
     write_speed(time,distance);
+
+
+    // write pace 
+    write_pace(time,distance);
 }
 
     // print closest distance along route
